@@ -14,6 +14,10 @@ ipcMain.on('quit-app', function () {
     app.quit();
 });
 
+ipcMain.on('close-window', function () {
+  mainWindow.hide();
+});
+
 const createTray = () => {
   tray = new Tray(__dirname + '/umbrellaTemplate.png');
   tray.on('click', function (event) {
@@ -55,7 +59,7 @@ const createWindow = () => {
     show: false,
     frame: false,
     fullscreenable: false,
-    resizable: false,
+    resizable: true,
     transparent: true,
     height: 300,
     width: 350,
@@ -67,7 +71,7 @@ const createWindow = () => {
   })
 
   mainWindow.loadURL('file://' + __dirname + '/index.html');
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
 
   // Hide the window when it loses focus
