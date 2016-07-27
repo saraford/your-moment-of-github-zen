@@ -14,9 +14,9 @@ ipcMain.on('quit-app', function () {
     app.quit();
 });
 
-ipcMain.on('close-window', function () {
-  mainWindow.hide();
-});
+// ipcMain.on('close-window', function () {
+// //  mainWindow.hide();
+// });
 
 const createTray = () => {
   tray = new Tray(__dirname + '/umbrellaTemplate.png');
