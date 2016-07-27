@@ -4,10 +4,10 @@ const ipcRenderer = require('electron').ipcRenderer;
 
 const wireUpButtons = () => {
 
-  let closeButton = document.getElementById('close-window');
+  let closeButton = document.getElementById('quit-app-button');
 
   closeButton.addEventListener('click', function() {
-    ipcRenderer.send('close-app');
+    ipcRenderer.send('quit-app');
   });
 
   let zenButton = document.getElementById('zen-button');

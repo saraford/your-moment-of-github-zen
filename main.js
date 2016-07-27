@@ -10,7 +10,7 @@ app.on('ready', function() {
     createWindow();
 });
 
-ipcMain.on('close-app', function () {
+ipcMain.on('quit-app', function () {
     app.quit();
 });
 
@@ -57,7 +57,7 @@ const createWindow = () => {
     fullscreenable: false,
     resizable: false,
     transparent: true,
-    height: 400,
+    height: 300,
     width: 350,
     webPreferences: {
       // Prevents renderer process code from not running when window is
