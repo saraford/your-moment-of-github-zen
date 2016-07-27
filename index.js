@@ -1,7 +1,15 @@
 'use strict'
 require('dotenv').config();
+const ipcRenderer = require('electron').ipcRenderer;
 
-const getZenPhrase = () => {
+const wireUpButtons = () => {
+
+  let closeButton = document.getElementById('close-window');
+
+  closeButton.addEventListener('click', function() {
+    ipcRenderer.send('close-app');
+  });
+
   let zenButton = document.getElementById('zen-button');
 
   zenButton.addEventListener('click', function (event) {
@@ -23,8 +31,6 @@ const getZenPhrase = () => {
   })
 }
 
-var zenButton = null;
-
 document.addEventListener('DOMContentLoaded', function() {
-  getZenPhrase();
+  wireUpButtons();
 });
