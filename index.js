@@ -1,5 +1,5 @@
 'use strict'
-require('dotenv').config();
+//require('dotenv').config();
 const ipcRenderer = require('electron').ipcRenderer;
 
 const wireUpButtons = () => {
@@ -20,11 +20,7 @@ const wireUpButtons = () => {
 
    const url = 'https://api.github.com/zen';
    var request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-          "User-Agent" : "saraford",
-          "Authorization" : "token " + process.env.TOKEN,
-         })
+      method: 'GET'
     });
 
      window.fetch(request).then(function(response) {
